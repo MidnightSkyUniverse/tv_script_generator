@@ -118,8 +118,8 @@ class RNN(nn.Module):
         self.embedding = nn.Embedding(vocab_size, embedding_dim)
         self.lstm = nn.LSTM(embedding_dim, hidden_dim, n_layers, dropout = dropout, batch_first=True)
         
-        # dropout layer
-        self.dropout = nn.Dropout(0.3)
+        # dropout layer - not recommended 
+        #self.dropout = nn.Dropout(0.3)
         
         # linera and sigmoid
         self.fc = nn.Linear(hidden_dim, output_size)
@@ -147,11 +147,7 @@ class RNN(nn.Module):
     
         out = self.fc(out)
      
-        
         sig_out = self.sigmoid(out)
-        # reshape into (batch_size, seq_length, output_size)
-        #output = sig_out.view(batch_size, -1, self.output_size)
-        #output = sig_out[:, -1]
         
         # return one batch of output word scores and the hidden state
         return sig_out, hidden
@@ -287,7 +283,7 @@ train_loader = batch_data(int_text, sequence_length, batch_size)
 
 # Training parameters
 # Number of Epochs
-num_epochs = 5
+num_epochs = 100
 # Learning Rate
 learning_rate = 0.003
 
