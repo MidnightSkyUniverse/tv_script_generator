@@ -274,7 +274,7 @@ def train_rnn(rnn, batch_size, optimizer, criterion, n_epochs, show_every_n_batc
 
 # Data params
 # Sequence Length
-sequence_length = 12  # of words in a sequence
+sequence_length = 15  # of words in a sequence
 # Batch Size
 batch_size =64
 
@@ -295,7 +295,7 @@ output_size = len(vocab_to_int)
 # Embedding Dimension
 embedding_dim = 50
 # Hidden Dimension
-hidden_dim = 64
+hidden_dim = 128
 # Number of RNN Layers
 n_layers = 1
 
